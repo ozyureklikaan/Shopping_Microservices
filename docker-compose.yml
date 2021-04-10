@@ -9,3 +9,6 @@ services:
         build:
             context: .
             dockerfile: src/Catalog/Catalog.API/Dockerfile
+
+    mongoAdmin:
+        image: mongo-express

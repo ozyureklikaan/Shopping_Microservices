@@ -19,3 +19,12 @@ services:
             - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
         ports:
             - "8000:80"
+
+    mongoAdmin:
+        container_name: mongoAdmin
+        ports:
+            - "8081:8081"
+        environment:
+            - ME_CONFIG_MONGODB_SERVER=catalogdb
+        depends_on:
+            - catalogdb

@@ -24,4 +24,15 @@ services:
     restart: always
     volumes:
     - /site:/data/db:rw
+  mongoAdmin:
+    container_name: mongoAdmin
+    depends_on:
+      catalogdb:
+        condition: service_started
+    environment:
+      ME_CONFIG_MONGODB_SERVER: catalogdb
+    image: mongo-express
+    ports:
+    - published: 8081
+      target: 8081
 version: '3.4'
